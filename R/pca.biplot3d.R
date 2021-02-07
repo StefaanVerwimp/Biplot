@@ -3,30 +3,30 @@
 #' An interactive 3D biplot. PC's are scaled to unit variance.
 #' 
 #' @param data            The data used to build the biplot
-#' @param center          Column centering the data (default = `TRUE`). If center is `TRUE` then centering is done by subtracting the column means (omitting `NA`'s) of x from their corresponding columns, and if center is `FALSE`, no centering is done.
-#' @param scale           Scaling the data (default = `FALSE`). If scale is `TRUE` then scaling is done by dividing the (centered) columns of x by their standard deviations if center is `TRUE`, and the root mean square otherwise. If scale is `FALSE`, no scaling is done.
+#' @param center          Column centering the data (default = \code{TRUE}). If center is \code{TRUE} then centering is done by subtracting the column means (omitting \code{NA}'s) of x from their corresponding columns, and if center is \code{FALSE}, no centering is done.
+#' @param scale           Scaling the data (default = \code{FALSE}). If scale is \code{TRUE} then scaling is done by dividing the (centered) columns of x by their standard deviations if center is \code{TRUE}, and the root mean square otherwise. If scale is \code{FALSE}, no scaling is done.
 #' @param pcx             Which principal component to plot on the X-axis (default = 1)
 #' @param pcy             Which principal component to plot on the Y-axis (default = 2)
 #' @param pcz             Which principal component to plot on the Z-axis (default = 3)
 #' @param col             Defines color of the observations, only if no group is defined
 #' @param groups          A vector from which the unique values are used to color the observations
 #' @param bg              Background color
-#' @param type            Type of plot / Presentation of observations. Options: `"sphere"`, `"point"`, `"text"` (default = `"sphere"`)
+#' @param type            Type of plot / Presentation of observations. Options: \code{"sphere"}, \code{"point"}, \code{"text"} (default = \code{"sphere"})
 #' @param r               Vector or single value defining the sphere radius/radii
 #' @param aspect3d        Vector used to set apparent ratios of the x, y, and z axes of the current bounding box
 #' @param abbrev          Whether to abbreviate the variable names
 #' @param arrow.col       Color of the variable arrow
 #' @param label.col       Color of the variable label
 #' @param label.cex       Size of the variable label
-#' @param simple.axis     Use `axes3d` instead of `decorate3d` if `TRUE`
-#' @param box             Whether to draw a box (only if using `decorate3d`)
-#' @param grid            Adds a reference grid if `TRUE`
-#' @param ellipse         Whether to add confidence ellipses to groups (to display this on the plot, either `ellipse.shade`, `ellipse.wire`, or both must be `TRUE`)
+#' @param simple.axis     Uses \code{\link[rgl]{axes3d}} instead of \code{\link[rgl]{decorate3d}} if \code{TRUE}
+#' @param box             Whether to draw a box (only if using \code{\link[rgl]{decorate3d}})
+#' @param grid            Adds a reference grid if \code{TRUE}
+#' @param ellipse         Whether to add confidence ellipses to groups (to display this on the plot, either \code{ellipse.shade}, \code{ellipse.wire}, or both must be \code{TRUE})
 #' @param ellipse.conf    Confidence limit for ellipses
 #' @param ellipse.alpha   Alpha transparency value for the ellipse (0 = transparent, 1 = opaque)
 #' @param ellipse.shade   Draws ellipse as a surface
 #' @param ellipse.wire    Draws ellipse as line segments
-#' @param ...             Material properties (see [rgl::rgl.material()]).
+#' @param ...             Material properties (see\code{\link[rgl]{material}}).
 #' 
 #' @examples 
 #'      data(iris)

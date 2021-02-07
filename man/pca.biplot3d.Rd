@@ -35,9 +35,9 @@ pca.biplot3d(
 \arguments{
 \item{data}{The data used to build the biplot}
 
-\item{center}{Column centering the data (default = `TRUE`). If center is `TRUE` then centering is done by subtracting the column means (omitting `NA`'s) of x from their corresponding columns, and if center is `FALSE`, no centering is done.}
+\item{center}{Column centering the data (default = \code{TRUE}). If center is \code{TRUE} then centering is done by subtracting the column means (omitting \code{NA}'s) of x from their corresponding columns, and if center is \code{FALSE}, no centering is done.}
 
-\item{scale}{Scaling the data (default = `FALSE`). If scale is `TRUE` then scaling is done by dividing the (centered) columns of x by their standard deviations if center is `TRUE`, and the root mean square otherwise. If scale is `FALSE`, no scaling is done.}
+\item{scale}{Scaling the data (default = \code{FALSE}). If scale is \code{TRUE} then scaling is done by dividing the (centered) columns of x by their standard deviations if center is \code{TRUE}, and the root mean square otherwise. If scale is \code{FALSE}, no scaling is done.}
 
 \item{pcx}{Which principal component to plot on the X-axis (default = 1)}
 
@@ -51,7 +51,7 @@ pca.biplot3d(
 
 \item{bg}{Background color}
 
-\item{type}{Type of plot / Presentation of observations. Options: `"sphere"`, `"point"`, `"text"` (default = `"sphere"`)}
+\item{type}{Type of plot / Presentation of observations. Options: \code{"sphere"}, \code{"point"}, \code{"text"} (default = \code{"sphere"})}
 
 \item{r}{Vector or single value defining the sphere radius/radii}
 
@@ -65,13 +65,13 @@ pca.biplot3d(
 
 \item{label.cex}{Size of the variable label}
 
-\item{simple.axis}{Use `axes3d` instead of `decorate3d` if `TRUE`}
+\item{simple.axis}{Uses \code{\link[rgl]{axes3d}} instead of \code{\link[rgl]{decorate3d}} if \code{TRUE}}
 
-\item{box}{Whether to draw a box (only if using `decorate3d`)}
+\item{box}{Whether to draw a box (only if using \code{\link[rgl]{decorate3d}})}
 
-\item{grid}{Adds a reference grid if `TRUE`}
+\item{grid}{Adds a reference grid if \code{TRUE}}
 
-\item{ellipse}{Whether to add confidence ellipses to groups (to display this on the plot, either `ellipse.shade`, `ellipse.wire`, or both must be `TRUE`)}
+\item{ellipse}{Whether to add confidence ellipses to groups (to display this on the plot, either \code{ellipse.shade}, \code{ellipse.wire}, or both must be \code{TRUE})}
 
 \item{ellipse.conf}{Confidence limit for ellipses}
 
@@ -81,7 +81,7 @@ pca.biplot3d(
 
 \item{ellipse.wire}{Draws ellipse as line segments}
 
-\item{...}{Material properties (see [rgl::rgl.material()]).}
+\item{...}{Material properties (see\code{\link[rgl]{material}}).}
 }
 \description{
 An interactive 3D biplot. PC's are scaled to unit variance.
