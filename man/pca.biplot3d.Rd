@@ -33,11 +33,11 @@ pca.biplot3d(
 )
 }
 \arguments{
-\item{data}{The data used to build a biplot}
+\item{data}{The data used to build the biplot}
 
-\item{center}{Whether the variables should be shifted to be zero centered (default = TRUE)}
+\item{center}{Column centering the data (default = `TRUE`). If center is `TRUE` then centering is done by subtracting the column means (omitting `NA`'s) of x from their corresponding columns, and if center is `FALSE`, no centering is done.}
 
-\item{scale}{Whether the variables should be scaled to have unit variance (default = FALSE)}
+\item{scale}{Scaling the data (default = `FALSE`). If scale is `TRUE` then scaling is done by dividing the (centered) columns of x by their standard deviations if center is `TRUE`, and the root mean square otherwise. If scale is `FALSE`, no scaling is done.}
 
 \item{pcx}{Which principal component to plot on the X-axis (default = 1)}
 
@@ -45,13 +45,13 @@ pca.biplot3d(
 
 \item{pcz}{Which principal component to plot on the Z-axis (default = 3)}
 
-\item{col}{Change color of observations, only if no group is defined}
+\item{col}{Defines color of the observations, only if no group is defined}
 
-\item{groups}{Color observations based on the unique values of this group}
+\item{groups}{A vector from which the unique values are used to color the observations}
 
 \item{bg}{Background color}
 
-\item{type}{Type of plot. Options: "sphere", "point", "text" (default = "sphere")}
+\item{type}{Type of plot / Presentation of observations. Options: `"sphere"`, `"point"`, `"text"` (default = `"sphere"`)}
 
 \item{r}{Vector or single value defining the sphere radius/radii}
 
@@ -65,23 +65,23 @@ pca.biplot3d(
 
 \item{label.cex}{Size of the variable label}
 
-\item{simple.axis}{Use axes3d instead of decorate3d if TRUE}
+\item{simple.axis}{Use `axes3d` instead of `decorate3d` if `TRUE`}
 
-\item{box}{Whether to draw a box (only if using decorate3d)}
+\item{box}{Whether to draw a box (only if using `decorate3d`)}
 
-\item{grid}{Adds a reference grid}
+\item{grid}{Adds a reference grid if `TRUE`}
 
-\item{ellipse}{Whether to add confidence ellipses to groups (to display this on the plot, ellipse.shade and/or ellipse.wire must be TRUE)}
+\item{ellipse}{Whether to add confidence ellipses to groups (to display this on the plot, either `ellipse.shade`, `ellipse.wire`, or both must be `TRUE`)}
 
 \item{ellipse.conf}{Confidence limit for ellipses}
 
-\item{ellipse.alpha}{Alpha transparency value for the ellipse (0 = transparent, 1 = opaque, default = 0.2)}
+\item{ellipse.alpha}{Alpha transparency value for the ellipse (0 = transparent, 1 = opaque)}
 
 \item{ellipse.shade}{Draws ellipse as a surface}
 
 \item{ellipse.wire}{Draws ellipse as line segments}
 
-\item{...}{Material properties (see rgl.material).}
+\item{...}{Material properties (see [rgl::rgl.material()]).}
 }
 \description{
 An interactive 3D biplot. PC's are scaled to unit variance.

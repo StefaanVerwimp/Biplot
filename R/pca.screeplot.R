@@ -3,8 +3,8 @@
 #' Plots the percentage of explained variance against the number of the principal component.
 #' 
 #' @param data      The data used to build the screeplot
-#' @param center    Center data before building screeplot
-#' @param scale     Scale data before building screeplot
+#' @param center    Column centering the data (default = `TRUE`). If center is `TRUE` then centering is done by subtracting the column means (omitting `NAs`) of x from their corresponding columns, and if center is `FALSE`, no centering is done.
+#' @param scale     Scaling the data (default = `FALSE`). If scale is `TRUE` then scaling is done by dividing the (centered) columns of x by their standard deviations if center is `TRUE`, and the root mean square otherwise. If scale is `FALSE`, no scaling is done.
 #' @param type      Type of screeplot (1 = dots and lines, 2 = barplot)
 #' 
 #' @examples
