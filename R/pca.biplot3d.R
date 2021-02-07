@@ -123,7 +123,7 @@ pca.biplot3d <- function(data, center = TRUE, scale = FALSE, pcx = 1, pcy = 2, p
   
 }
 
-.get_colors <- function(groups, group.col = grDevices::palette()){
+get_colors <- function(groups, group.col = grDevices::palette()){
   groups <- as.factor(groups)
   ngrps <- length(levels(groups))
   if(ngrps > length(group.col)) group.col <- rep(group.col, ngrps)
