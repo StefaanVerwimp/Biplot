@@ -32,7 +32,7 @@
 #'        ellipse = T, pch = 16, legend.pos = 'topright')
 #' @export
 pca.biplot <- function(data, center = TRUE, scale = FALSE, pcx = 1, pcy = 2, groups = 1,
-                       col, pch = 1,
+                       col = NULL, pch = 1,
                        ellipse = F, ellipse.alpha = 0.2, ellipse.conf = 0.68, ellipse.lwd = 2,
                        arrow.options,
                        label.options, abbrev = F,
@@ -45,16 +45,15 @@ pca.biplot <- function(data, center = TRUE, scale = FALSE, pcx = 1, pcy = 2, gro
   svd <- svd(y)                                     # SVD
   diag.d <- diag(svd$d)
   
-  if(missing(col)){
+  if(is.null(col)){
     ellipse.col <- grDevices::palette()
     col <- as.factor(groups)
+  } else if(length(col) != length(unique(groups))) {
+    # Check if length col vector is equal to number of unique groups
+    stop("col not defined correctly, number of colors should be equal to the number of unique groups")
   } else {
-    if(length(col) != length(unique(groups))){   # Check if length col vector is equal to number of unique groups
-      stop("col not defined correctly, number of colors should be equal to the number of unique groups")
-    } else {
-      ellipse.col <- col
-      col <- col[as.factor(groups)]
-    }
+    ellipse.col <- col
+    col <- col[as.factor(groups)]
   }
   
   # standardized PC scores
