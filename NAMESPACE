@@ -1,0 +1,3 @@
+export(pca.biplot)
+export(pca.biplot3d)
+export(pca.screeplot)

@@ -1,0 +1,13 @@
+Package: pca.biplot
+Version: 1.0.0
+Date: 2021-02-07
+Title: A customizable correlational biplot function
+Description: A customizable correlational biplot function
+Imports:
+    stats,
+    graphics,
+    grDevices,
+    vegan (>= 2.4-2),
+    rgl (>= 0.104.16)
+RoxygenNote: 7.1.1
+Encoding: UTF-8
