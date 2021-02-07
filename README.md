@@ -25,7 +25,10 @@ data(iris)
 library(pca.biplot)
 pca.biplot(iris[,-5])
 ```
-![](README_images/simple_biplot.png)
+
+<p align="center">
+  <img src="README_images/simple_biplot.png"/>
+</p>
 
 With some customization:
 ```r
@@ -33,10 +36,17 @@ pca.biplot(iris[,-5], scale = T, col = c("#00AFBB", "#E7B800", "#FC4E07"),
            groups = iris$Species, ellipse = T, pch = 16, main = "Iris data biplot",
            legend.pos = 'topright', circle.options = list(border = "grey"))
 ```
-![](README_images/some_customization.png)
+
+<p align="center">
+  <img src="README_images/some_customization.png"/>
+</p>
+
 
 In 3D:
 ```r
 pca.biplot3d(iris[,-5], groups = iris$Species, scale = T, box = T, grid = T, ellipse = T)
 ```
-![](README_images/biplot3d.gif)
+
+<p align="center">
+  <img src="README_images/biplot3d.gif" alt="animated" />
+</p>
