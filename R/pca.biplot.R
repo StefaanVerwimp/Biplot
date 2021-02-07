@@ -2,26 +2,26 @@
 #' 
 #' A customizable correlational biplot function. PC's are scaled to unit variance.
 #' 
-#' @param data            The data used to build a biplot
-#' @param center          Whether the variables should be shifted to be zero centered (default = TRUE)
-#' @param scale           Whether the variables should be scaled to have unit variance (default = FALSE)
+#' @param data            The data used to build the biplot
+#' @param center          Column centering the data (default = `TRUE`). If center is `TRUE` then centering is done by subtracting the column means (omitting `NAs`) of x from their corresponding columns, and if center is `FALSE`, no centering is done.
+#' @param scale           Scaling the data (default = `FALSE`). If scale is `TRUE` then scaling is done by dividing the (centered) columns of x by their standard deviations if center is `TRUE`, and the root mean square otherwise. If scale is `FALSE`, no scaling is done.
 #' @param pcx             Which principal component to plot on the X-axis (default = 1)
 #' @param pcy             Which principal component to plot on the Y-axis (default = 2)
-#' @param groups          Color observations based on the unique values of this group
-#' @param pch             Determines appearance plotting point, see ?par() for more
-#' @param col             Vector of colors to color observations, needs to be equal to the number of unique values of 'groups' variable, if no 'groups' is defined then all points will have the defined color
-#' @param ellipse         Whether to add confidence ellipses to groups
-#' @param ellipse.alpha   Alpha transparency value for the ellipse (0 = transparent, 1 = opaque, default = 0.2)
-#' @param ellipse.conf    Confidence limit for ellipses
-#' @param ellipse.lwd     Line width of the ellipse
-#' @param arrow.options   List to define options for the variable arrows (for all options see ?arrows ). Needs to be defined as a list, e.g. arrows.options = list(angle = 0.15, col = "blue"), errors could occur if a vector is used.
-#' @param label.options   List to define options for the variable labels (for all options see ?text ). Needs to be defined as a list, e.g. label.options = list(cex = 1.2, col = "red"), errors could occur if a vector is used.
+#' @param groups          A vector from which the unique values are used to color the observations
+#' @param pch             Either an integer specifying a symbol or a single character to be used as the default in plotting points. See [graphics::points()] for possible values and their interpretation.
+#' @param col             Vector of colors, to color observations. Needs to be equal to the number of unique values of `groups` variable. If no `groups` is defined then all points will have the defined color.
+#' @param ellipse         Whether to add confidence ellipses to the different groups
+#' @param ellipse.alpha   Alpha transparency value for the fill color (0 = transparent, 1 = opaque)
+#' @param ellipse.conf    Confidence limit for ellipses, e.g. 0.68. If given, the corresponding sd or se is multiplied with the corresponding value found from the Chi-squared distribution with 2df.
+#' @param ellipse.lwd     Line width of ellipse border
+#' @param arrow.options   List to define options for the variable arrows (for all options see [graphics::arrows()] ). Needs to be defined as a list, e.g. `arrows.options = list(angle = 0.15, col = "blue")`, errors could occur if a vector is used.
+#' @param label.options   List to define options for the variable labels (for all options see [graphics::text()] ). Needs to be defined as a list, e.g. `label.options = list(cex = 1.2, col = "red")`, errors could occur if a vector is used.
 #' @param abbrev          Whether to abbreviate the variable names
-#' @param circle          Whether to add a unit circle. Only applies if data is scaled.
-#' @param circle.options  List to define options for the unit circle (for all options see ?polygon ). Needs to be defined as a list, e.g. circle.options = list(lty = "dashed", col = "grey")
+#' @param circle          Whether to add a unit circle. Only applies if data is scaled!
+#' @param circle.options  List to define options for the unit circle (for all options see [graphics::polygon()] ). Needs to be defined as a list, e.g. `circle.options = list(lty = "dashed", col = "grey")`, errors could occur if a vector is used.
 #' @param legend          Whether to add a legend
 #' @param legend.pos      Position of the legend
-#' @param ...             Other graphical parameters, see ?plot for more details.
+#' @param ...             Other graphical parameters, see [graphics::plot()] for more details.
 #' 
 #' @examples 
 #'   data(iris)
@@ -33,9 +33,9 @@
 #' @export
 pca.biplot <- function(data, center = TRUE, scale = FALSE, pcx = 1, pcy = 2, groups = 1,
                        col = NULL, pch = 1,
-                       ellipse = F, ellipse.alpha = 0.2, ellipse.conf = 0.68, ellipse.lwd = 2,
+                       ellipse = FALSE, ellipse.alpha = 0.2, ellipse.conf = 0.68, ellipse.lwd = 2,
                        arrow.options,
-                       label.options, abbrev = F,
+                       label.options, abbrev = FALSE,
                        circle = TRUE, circle.options,
                        legend = TRUE, legend.pos = "bottomleft",
                        ...
